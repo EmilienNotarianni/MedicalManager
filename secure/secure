@@ -1,0 +1,52 @@
+On a supprimé le compte admain de sql
+
+aucun get
+pour tous les input verif échapement des caracteres spéciaux (regex).
+	php
+	js
+
+Connexion :
+			- js  : email valide + pas d'injection dans mdp
+			- php : email valide + pas d'injection dans mdp
+			- au plus 5 essais
+				select email from ... where email = 'POSTemail'
+					email = POST email
+					pass = POST pass
+
+session : 	15mins
+			email + pass + nom + prenom
+
+doc :
+			- check
+				select email + pass + nom + prenom + cat from ... where email = 'POSTemail'
+					email = POST email
+					pass = POST pass
+					cat = doc
+			- select * user.
+
+infirmière :
+		- check
+				select email + pass + nom + prenom + cat from ... where email = 'POSTemail'
+					email = POST email
+					pass = POST pass
+					cat = inf
+		- select etat civil +  coor* user.
+
+empl       :
+		- check
+				select * from ... where email = 'POSTemail'
+					email = POST email
+					pass = POST pass
+					cat = emp
+
+		- 
+
+page :  Regarder quelle catégorie le mec il est et générer par block
+		après le update on vefirie le role
+		
+
+		
+		
+		
+
+! modification simultanée select au niveau du update
