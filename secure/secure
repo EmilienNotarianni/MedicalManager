@@ -1,3 +1,10 @@
+Done : 
+- Suppression du compte par défaut
+- index.php partout
+- un moteur php dirige l'utilisateur => l'arborescence et l'architechture est cachée 
+
+
+
 On a supprimé le compte admain de sql
 
 aucun get
@@ -14,7 +21,7 @@ Connexion :
 					pass = POST pass
 
 session : 	15mins
-			email + pass + nom + prenom
+			email + pass + nom + prenom + cat
 
 doc :
 			- check
