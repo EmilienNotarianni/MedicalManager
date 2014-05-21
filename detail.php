@@ -20,7 +20,7 @@ require 'entete.php';
 				<td>
 				<div class="row">
 					  <div class="col-xs-4">
-						<?php if ($_SESSION['profil'] == 'Medecin'){?>
+						<?php if ($_SESSION['profil'] == 'Medecin' and $_SESSION['email'] != $_SESSION['patient']['email']){?>
 							<?php echo $_SESSION['patient']['genre'];?>
 						<?php }else{?>
 							<select class="form-control" name="genre">
@@ -36,7 +36,7 @@ require 'entete.php';
 			<tr>
 				<td>Nom</td>
 				<td>
-					<?php if ($_SESSION['profil'] != 'Medecin'){?>
+					<?php if ($_SESSION['profil'] != 'Medecin' or $_SESSION['email'] == $_SESSION['patient']['email']){?>
 						<input type="text" class="form-control" value="<?php echo $_SESSION['patient']['name'];?>" name="name"/>
 					<?php }else{ echo $_SESSION['patient']['name'];}?>
 						
@@ -44,7 +44,7 @@ require 'entete.php';
 			<tr>
 				<td>Prénom</td>
 				<td>
-					<?php if ($_SESSION['profil'] != 'Medecin'){?>
+					<?php if ($_SESSION['profil'] != 'Medecin' or $_SESSION['email'] == $_SESSION['patient']['email']){?>
 						<input type="text" class="form-control" value="<?php echo $_SESSION['patient']['prenom'];?>" name="prenom"/>
 					<?php }else{ echo $_SESSION['patient']['prenom'];}?>
 				</td>
@@ -52,7 +52,7 @@ require 'entete.php';
 			<tr>
 				<td>Email</td>
 				<td>
-				<?php if ($_SESSION['profil'] != 'Medecin'){?>
+				<?php if ($_SESSION['profil'] != 'Medecin' or $_SESSION['email'] == $_SESSION['patient']['email']){?>
 					<input type="text" class="form-control" value="<?php echo $_SESSION['patient']['email'];?>" name="email"/>
 				<?php }else{ echo $_SESSION['patient']['email'];}?>
 				</td>
@@ -60,7 +60,7 @@ require 'entete.php';
 			<tr>
 				<td>Date de naissance</td>
 				<td>
-				<?php if ($_SESSION['profil'] != 'Medecin'){?>
+				<?php if ($_SESSION['profil'] != 'Medecin' or $_SESSION['email'] == $_SESSION['patient']['email']){?>
 					<div class="row">
 					  <div class="col-xs-2">
 						<select class="form-control" name="jdn">
@@ -107,12 +107,12 @@ require 'entete.php';
 				<td>
 					<div class="row">
 					  <div class="col-xs-2">
-						<?php if ($_SESSION['profil'] != 'Medecin'){?>
+						<?php if ($_SESSION['profil'] != 'Medecin' or $_SESSION['email'] == $_SESSION['patient']['email']){?>
 							<input type="text" class="form-control" value="<?php echo $_SESSION['patient']['anum'];?>" name="anum"/>
 						<?php }else{ echo $_SESSION['patient']['anum'];}?>
 					  </div>
 					  <div class="col-xs-10">
-						<?php if ($_SESSION['profil'] != 'Medecin'){?>
+						<?php if ($_SESSION['profil'] != 'Medecin' or $_SESSION['email'] == $_SESSION['patient']['email']){?>
 							<input type="text" class="form-control" value="<?php echo $_SESSION['patient']['arue'];?>" name="arue"/>
 						<?php }else{ echo $_SESSION['patient']['arue'];}?>
 					  </div>
@@ -123,7 +123,7 @@ require 'entete.php';
 
 				<td>Complément d'Addresse</td>
 				<td>
-				<?php if ($_SESSION['profil'] != 'Medecin'){?>
+				<?php if ($_SESSION['profil'] != 'Medecin' or $_SESSION['email'] == $_SESSION['patient']['email']){?>
 					<input type="text" class="form-control" value="<?php echo $_SESSION['patient']['acmp'];?>" name="acmp"/>
 				<?php }else{ echo $_SESSION['patient']['acmp'];}?>
 				</td>
@@ -133,12 +133,12 @@ require 'entete.php';
 				<td>
 					<div class="row">
 					  <div class="col-xs-2">
-						<?php if ($_SESSION['profil'] != 'Medecin'){?>
+						<?php if ($_SESSION['profil'] != 'Medecin' or $_SESSION['email'] == $_SESSION['patient']['email']){?>
 							<input type="text" class="form-control" value="<?php echo $_SESSION['patient']['acp'];?>" name="acp"/>
 						<?php }else{ echo $_SESSION['patient']['acp'];}?>
 					  </div>
 					  <div class="col-xs-10">
-						<?php if ($_SESSION['profil'] != 'Medecin'){?>
+						<?php if ($_SESSION['profil'] != 'Medecin' or $_SESSION['email'] == $_SESSION['patient']['email']){?>
 							<input type="text" class="form-control" value="<?php echo $_SESSION['patient']['aville'];?>" name="aville"/>
 						<?php }else{ echo $_SESSION['patient']['aville'];}?>
 					  </div>
@@ -148,7 +148,7 @@ require 'entete.php';
 			<tr>
 				<td>Pays</td>
 				<td>
-				<?php if ($_SESSION['profil'] != 'Medecin'){?>
+				<?php if ($_SESSION['profil'] != 'Medecin' or $_SESSION['email'] == $_SESSION['patient']['email']){?>
 					<input type="text" class="form-control" value="<?php echo $_SESSION['patient']['apays'];?>" name="apays"/>
 				<?php }else{ echo $_SESSION['patient']['apays'];}?>
 				</td>
@@ -158,7 +158,7 @@ require 'entete.php';
 				<td>
 				<?php if ($_SESSION['profil'] == 'Medecin'){?>
 					<textarea type="text" class="form-control" name="antMedicaux"/><?php echo $_SESSION['patient']['antMedicaux'];?></textarea>
-				<?php }else if ($_SESSION['profil'] == 'Employes'){ echo $_SESSION['patient']['antMedicaux'];}?>
+				<?php }else if ($_SESSION['profil'] == 'Employes' or ($_SESSION['profil'] == 'Secretaire' AND $_SESSION['email'] == $_SESSION['patient']['email'])){ echo $_SESSION['patient']['antMedicaux'];}?>
 				</td>
 			</tr>
 			<tr>
@@ -166,7 +166,7 @@ require 'entete.php';
 				<td>
 				<?php if ($_SESSION['profil'] == 'Medecin'){?>
 					<textarea type="text" class="form-control" name="vaccinations"/><?php echo $_SESSION['patient']['vaccinations'];?></textarea>
-				<?php }else if ($_SESSION['profil'] == 'Employes'){ echo $_SESSION['patient']['vaccinations'];}?>
+				<?php }else if ($_SESSION['profil'] == 'Employes' or ($_SESSION['profil'] == 'Secretaire' AND $_SESSION['email'] == $_SESSION['patient']['email'])){ echo $_SESSION['patient']['vaccinations'];}?>
 				</td>
 			</tr>
 			<tr>

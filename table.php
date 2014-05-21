@@ -12,7 +12,7 @@ require 'entete.php';
 		<table class="table">
 			<?php
 			$req = $bdd->prepare('SELECT email FROM mp_user');
-                        $req->execute(array($email));
+                        $req->execute(array());
                         
                         while ($recup = $req->fetch()){
 			?>

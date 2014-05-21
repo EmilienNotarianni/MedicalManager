@@ -1,4 +1,8 @@
-
+<?php
+if (!isset($_SESSION)){
+        header('location: index.php');
+}
+?>
       <footer>
         <p>Legrand & Notarianni &copy; Company 2014</p>
       </footer>

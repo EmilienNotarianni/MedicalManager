@@ -9,7 +9,7 @@
 	if (!isset($_SESSION['connected']) OR !$_SESSION['connected']){
 		require 'conneXion.php';
 	}
-	else if ($_SESSION['profil'] == 'Employes' OR $_SESSION['patient'] != null) {
+	else if ($_SESSION['profil'] == 'Employes' OR isset($_SESSION['patient']) AND $_SESSION['patient'] != null) {
 		require 'detail.php';
 	}
 	else if ($_SESSION['profil'] == 'Secretaire' OR $_SESSION['profil'] == 'Medecin'){

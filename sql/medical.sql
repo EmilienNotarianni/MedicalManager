@@ -2,7 +2,14 @@
 	/* ******************     DATA BASE - MEDICAL     *********************/
 	/* ******************             v1              *********************/
 	/* ********************************************************************/
+	
 
+	/* log */
+	CREATE TABLE log (
+	date_log VARCHAR(255) NOT NULL,
+	email_log VARCHAR(255) NOT NULL,
+	ip VARCHAR(50) NOT NULL
+	);
 	/* * MEDICAL * */
 	CREATE TABLE mp_user (
 	email VARCHAR(255) NOT NULL,
@@ -60,7 +67,7 @@
 	insert into mp_user values (
 		'emilien.notarianni@wanadoo.fr',
 		'd1bfaa72671177d4d17bb440c9decacd2414b4996aa5cd9098ef365c72815d63fb1f15822e324752edd46ce4100ebedb22dab85fb5bcd624bf542f5bd6c005df',
-		'Infirmiere',
+		'Secretaire',
 		'Notarianni',
 		'Emilien',
 		'1992-04-12',

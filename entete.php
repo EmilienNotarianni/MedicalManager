@@ -1,4 +1,8 @@
-
+<?php
+if (!isset($_SESSION)){
+        header('location: index.php');
+}
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
