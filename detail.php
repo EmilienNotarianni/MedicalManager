@@ -1,7 +1,19 @@
+<?php
+if (!isset($_SESSION)){
+	header('location: index.php');
+}
+require 'entete.php';
+?>
 <div class="jumbotron center-block">
+        <?php
+        if ($_SESSION['profil'] == 'Medecin' OR $_SESSION['profil'] == 'Secretaire'){?>
+        <form class="form" method="POST" action="index.php">
+                <button class="btn btn-lg btn-default" type="submit" name="dossier">Consulter tous les dossiers</button>
+        </form>
+        <?php } ?>
+
 	<h1>Information</h1>
-	
-	<form class="form">
+	<form class="form" method="POST" action="index.php">
 		<table class="table">
 			<tr>
 				<td>Civilité</td>
@@ -160,6 +172,11 @@
 			<tr>
 				<td></td>
 				<td><button class="btn btn-lg btn-primary btn-block" type="submit" name="update">Mise à jour des informations</button></td>
-		</form>
-	</table>
-</div>
+			</tr>
+		</table>
+	</form>
+
+
+<?php
+require 'footer.php';
+?>
